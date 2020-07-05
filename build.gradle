@@ -9,7 +9,7 @@ apply plugin: 'maven-publish'
 // Java compatibility.
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-group = 'com.github.pintia'
+group = 'cn.patest.redisson.codec'
 
 buildscript {
     ext {
