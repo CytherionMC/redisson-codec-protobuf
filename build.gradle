@@ -4,6 +4,7 @@ apply plugin: 'idea'
 apply plugin: 'com.google.protobuf'
 apply plugin: 'jacoco'
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 // Java compatibility.
 sourceCompatibility = 1.8
@@ -24,6 +25,8 @@ buildscript {
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.8'
     }
 }
+
+version = ext.codecVersion
 
 repositories {
     jcenter()
@@ -103,3 +106,35 @@ jacocoTestReport {
     }
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'redisson-codec-protobuf'
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'Redisson Codec Protobuf'
+                description = 'Redisson codec for protobuf'
+            }
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username = System.getenv("MVN_USER_PUBLISH")
+                password = System.getenv("MVN_PASS_PUBLISH")
+            }
+            url "https://repo.cytherion.eu/artifactory/private/"
+            authentication {
+                basic(BasicAuthentication)
+            }
+        }
+    }
+}
