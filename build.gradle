@@ -26,7 +26,7 @@ buildscript {
     }
 }
 
-version = ext.codecVersion
+version = '3.11'//ext.codecVersion
 
 repositories {
     jcenter()
