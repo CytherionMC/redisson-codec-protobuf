@@ -58,10 +58,10 @@ dependencies {
     // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     // Protocol Buffer
-    compile 'com.google.protobuf:protobuf-java:3.12.2'
+    compileOnly 'com.google.protobuf:protobuf-java:3.12.2'
     // Redisson, codec and hashing algorithm
     compile 'de.ruedigermoeller:fst:2.56'
-    compile "org.redisson:redisson:${codecVersion}"
+    compileOnly "org.redisson:redisson:${codecVersion}"
 
     testCompile 'org.xerial.snappy:snappy-java:1.1.7.2'
     testCompile "org.assertj:assertj-core:3.10.0"
