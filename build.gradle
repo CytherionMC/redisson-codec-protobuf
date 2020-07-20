@@ -22,7 +22,7 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.8'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.12'
     }
 }
 
@@ -58,7 +58,7 @@ dependencies {
     // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     // Protocol Buffer
-    compile 'com.google.protobuf:protobuf-java:3.6.1'
+    compile 'com.google.protobuf:protobuf-java:3.12.3'
     // Redisson, codec and hashing algorithm
     compile 'de.ruedigermoeller:fst:2.56'
     compile "org.redisson:redisson:${codecVersion}"
